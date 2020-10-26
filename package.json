@@ -10,7 +10,8 @@
     "db": "node db/createDb.js",
     "server": "node .",
     "start": "npm run db && npm run server",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -27,7 +28,8 @@
   },
   "devDependencies": {
     "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0"
+    "eslint-config-loopback": "^8.0.0",
+    "knex": "^0.21.7"
   },
   "repository": {
     "type": "",

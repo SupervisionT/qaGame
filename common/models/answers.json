@@ -30,6 +30,16 @@
         "default": 0,
         "nullable": "N"
       }
+    },
+    "questionId": {
+      "type": "number",
+      "default": 0,
+      "required": false,
+      "mysql": {
+        "columnName": "questionId",
+        "dataType": "INT",
+        "nullable": "Y"
+      }
     }
   },
   "validations": [],

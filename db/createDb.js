@@ -11,9 +11,13 @@ const config = require('../server/datasources.json');
    con.connect(async (err) => {
         if (err) throw err;
         console.log("Connected!");
-        return await con.query(`CREATE DATABASE IF NOT EXISTS ${database}`, function (err, result) {
+        return await con.query(`DROP DATABASE IF EXISTS ${database}`, function (err, result) {
             if (err) throw err;
-            console.log("Database created or already exists");
-            con.destroy();
+            console.log("Database DROP");
+            con.query(`CREATE DATABASE IF NOT EXISTS ${database}`, function (err, result) {
+                if (err) throw err;
+                console.log("Database created or already exists");
+                con.destroy();
+            });
         });
     });
