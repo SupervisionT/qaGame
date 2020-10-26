@@ -1,7 +1,7 @@
-const paganation = (ctx, inst, next) => {
+const pagination = (ctx, inst, next) => {
     console.log('inst', inst);
     if (!ctx.args.filter || !ctx.args.filter.limit) {
-        //set default value for paganation if not passed by request
+        //set default value for pagination if not passed by request
         console.log('forcing limit!');
         if (!ctx.args.filter) ctx.args.filter = {};
         ctx.args.filter.limit = 2;
@@ -13,5 +13,5 @@ const paganation = (ctx, inst, next) => {
 }
 
 module.exports = {
-    paganation
+    pagination
 }

@@ -1,12 +1,12 @@
 'use strict';
-const { paganation } = require('../utils');
+const { pagination } = require('../utils');
 
 module.exports = function (Answers) {
     /**
-     * Define Remote hook to handle paganation
+     * Define Remote hook to handle pagination
      */
     Answers.beforeRemote('find', (ctx, instance, next) => {
-        paganation(ctx, instance, next);
+        pagination(ctx, instance, next);
     });
 
     /**

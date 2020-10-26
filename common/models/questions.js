@@ -1,12 +1,12 @@
 'use strict';
-const { paganation } = require('../utils');
+const { pagination } = require('../utils');
 
 module.exports = function (Questions) {
     Questions.beforeRemote('find', function (ctx, instance, next) {
-        paganation(ctx, instance, next);
+        pagination(ctx, instance, next);
     });
 
     Questions.beforeRemote('*.__get__answers', (ctx, instance, next) => {
-        paganation(ctx, instance, next);
+        pagination(ctx, instance, next);
     });
 };
