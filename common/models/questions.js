@@ -2,11 +2,13 @@
 const { pagination } = require('../utils');
 
 module.exports = function (Questions) {
-    Questions.beforeRemote('find', function (ctx, instance, next) {
-        pagination(ctx, instance, next);
-    });
+    /**
+     * Define Remote hook to handle pagination
+     */
+    
+    //handle pagination for GET /Questions
+    Questions.beforeRemote('find', pagination);
 
-    Questions.beforeRemote('*.__get__answers', (ctx, instance, next) => {
-        pagination(ctx, instance, next);
-    });
+    //handle pagination for GET /Questions/{id}/answers
+    Questions.beforeRemote('*.__get__answers', pagination);
 };

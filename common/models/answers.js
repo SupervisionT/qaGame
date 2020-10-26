@@ -5,9 +5,7 @@ module.exports = function (Answers) {
     /**
      * Define Remote hook to handle pagination
      */
-    Answers.beforeRemote('find', (ctx, instance, next) => {
-        pagination(ctx, instance, next);
-    });
+    Answers.beforeRemote('find', pagination);
 
     /**
      * @param {number} id 
@@ -22,6 +20,9 @@ module.exports = function (Answers) {
      */
     Answers.voting = (id, vote, cb) => {
         if (['up', 'down'].includes(vote)) {
+            // @TODO: this is not the optimal method to update attribute value
+            // We may lose a data if two users voted for the same answer at the same time
+            // Find a better way to do this
             Answers.findById(id, function (err, Answers) {
 
                 Answers.votes = (vote == 'up') ? Answers.votes + 1 : Answers.votes - 1;
