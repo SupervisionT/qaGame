@@ -1,6 +1,4 @@
 'use strict';
-const questionsSchema = require('../../common/models/questions.json');
-const answersSchema = require('../../common/models/answers.json');
 
 module.exports = async (app) => {
     const mysqlDs = app.dataSources.db;
