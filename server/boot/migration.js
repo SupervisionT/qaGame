@@ -1,11 +1,14 @@
 'use strict';
+const { seed } = require('../../db/seed');
 
 module.exports = async (app) => {
     const mysqlDs = app.dataSources.db;
     // migrate lb default tables
     createLbTables(mysqlDs, app);
     // migrate models tables User, Answers & Questions
-    mysqlDs.autoupdate();
+    await mysqlDs.autoupdate();
+    // run seeding script
+    seed();
 };
 
 const createLbTables = (mysqlDs, app) => {
@@ -33,7 +36,7 @@ const createLbTables = (mysqlDs, app) => {
                 console.log('user already exists');
                 return
             }
-            console.log('Created:', model);
+            console.log('User Created');
         });
         return "db created"
     });
