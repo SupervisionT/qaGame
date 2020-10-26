@@ -1,0 +1,11 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "qatest",
+    "password": "AsKjb*&swuw67",
+    "name": "db",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

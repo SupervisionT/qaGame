@@ -1,0 +1,55 @@
+{
+  "name": "Answers",
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "idInjection": true,
+    "mysql": {
+      "schema": "LOOPBACK",
+      "table": "Answers"
+    }
+  },
+  "properties": {
+    "body": {
+      "type": "string",
+      "required": true,
+      "mysql": {
+        "columnName": "BODY",
+        "dataType": "VARCHAR",
+        "dataLength": 200,
+        "nullable": "Y"
+      }
+    },
+    "votes": {
+      "type": "number",
+      "default": 0,
+      "required": false,
+      "mysql": {
+        "columnName": "VOTES",
+        "dataType": "TINYINT",
+        "default": 0,
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {},
+  "foreignKeys": {
+    "questionId": {
+      "name": "questionId",
+      "entity": "Questions",
+      "entityKey": "id",
+      "foreignKey": "questionId"
+    }
+  }
+
+}
