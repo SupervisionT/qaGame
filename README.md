@@ -110,14 +110,18 @@ curl -X GET --header 'Accept: application/json' 'http://localhost:3001/api/v1/Qu
 //URL
 http://localhost:3001/api/v1/Questions?filter=%7B%22limit%22%3A%204%2C%20%22skip%22%3A%204%20%7D
 ```
+To change the pagination default values you may edit the values in
+```
+common/utils/constants.js
+```
 
-**2-**Count instances of the model matched by where from the data source<br/>
+**2-** Count instances of the model matched by where from the data source<br/>
 This method is useful to calculate the number of questions pages and to set the filter values, limit and spip.
 ```
 GET /api/v1/Questions/count
 ```
 
-**3-**Counts answers of Questions.<br/>
+**3-** Counts answers of Questions.<br/>
 This method is useful to calculate the number of question answers pages and to set the filter values, limit and spip.
 ```
 GET /api/v1/Questions/{id}/answers/count
