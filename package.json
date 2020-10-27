@@ -10,8 +10,7 @@
     "db": "node db/createDb.js",
     "server": "node .",
     "start": "npm run db && npm run server",
-    "posttest": "npm run lint",
-    "seed": "node db/seed.js"
+    "posttest": "npm run lint"
   },
   "dependencies": {
     "compression": "^1.0.3",
